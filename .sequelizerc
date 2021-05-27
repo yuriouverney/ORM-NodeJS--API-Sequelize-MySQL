@@ -1,0 +1,13 @@
+//Arquivo criado para dizer que os arquivos que foram criados pelo comando "npx sequelize-cli init"
+//foram migrados da pasta raiz para a pasta que criamos API
+//também foi instalado a biblioteca path "npm install path"
+//Documentação no site: (https://sequelize.org/master/manual/migrations.html) The .sequelizerc file -- 
+
+const path = require('path');
+
+module.exports = {
+  'config': path.resolve('./api/config', 'database.json'),
+  'models-path': path.resolve('db', './api/models'),
+  'seeders-path': path.resolve('db', './api/seeders'),
+  'migrations-path': path.resolve('db', './api/migrations')
+};

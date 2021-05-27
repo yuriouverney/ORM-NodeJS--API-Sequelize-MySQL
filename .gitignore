@@ -1,0 +1,2 @@
+//Arquivo .gitnore para impedir que suba os arquivos da pasta node_modules para o github
+node_modules
