@@ -1,4 +1,5 @@
 // Atenção, não pode conter espaços entre os atributos da tabela.
+// ATENÇÃO - AS TABELAS DEVEM SER CRIADAS EM ORDEM, TABELAS QUE NECESSITAM DE OUTRAS DEVEM SER CRIADAS DEPOIS!
 // Criação da tabela Pessoas:
 npx sequelize-cli model:create --name Pessoas --attributes nome:string,ativo:boolean,email:string,role:string
 
@@ -13,3 +14,12 @@ npx sequelize-cli seed:generate --name demon-pessoa
 
 //upando os dados do seed no banco
 npx sequelize-cli db:seed:all
+
+//criando a tabela nivel
+npx sequelize-cli model:create --name Niveis --attributes descr_nivel:string
+
+//criando a tabela Turmas
+npx sequelize-cli model:create --name Turmas --attributes data_inicio:dateonly
+
+//criando a tabela Matrículas
+npx sequelize-cli model:create --name Matriculas --attributes status:string
