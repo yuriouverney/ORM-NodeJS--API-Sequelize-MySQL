@@ -1,0 +1,15 @@
+// Atenção, não pode conter espaços entre os atributos da tabela.
+// Criação da tabela Pessoas:
+npx sequelize-cli model:create --name Pessoas --attributes nome:string,ativo:boolean,email:string,role:string
+
+//migrar o banco de dados:
+npx sequelize-cli db:migrate
+
+//Adicionando alguem na tabela Pessoa com comando no MYSQL:
+INSERT INTO escola_ingles.pessoas (nome,ativo,email,role,createdAt,updatedAt) VALUES ("Yuri", 1,"yuri@hotmail.com","estudante", NOW(), NOW())
+
+//Criando um arquivo seed para fazer a importação de dados para a tabela sem precisar ir direto no comando MYSQL
+npx sequelize-cli seed:generate --name demon-pessoa
+
+//upando os dados do seed no banco
+npx sequelize-cli db:seed:all

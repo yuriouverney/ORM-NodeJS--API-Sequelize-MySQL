@@ -1,0 +1,20 @@
+// RELAÇÃO ORM SINGULAR X PLURAL - TABELAS 
+
+É importante sempre que formos criar nomes para tabelas SQL colocarmos nomes no PLUARAL, exemplo:
+Pessoas (assim como foi criado neste projeto) e não Pessoa.
+O comportamento padrão dessas ferramentas (ORM) é “pluralizar” automaticamente todos os nomes de tabelas.
+uma maneira de barrar isso é utilizando de alguns comandos como:
+Utilizando o freezeTableName --
+sequelize.define('User', {
+  // ... (attributes)
+}, {
+  freezeTableName: true
+});
+ou Definindo o nome da tabela manualmente:
+sequelize.define('User', {
+  // ... (attributes)
+}, {
+  tableName: 'Employees'
+});
+
+-----------------------------------------------------------------------------------------------------------
