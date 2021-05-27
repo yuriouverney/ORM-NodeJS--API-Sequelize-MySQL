@@ -1,0 +1,5 @@
+mysql2
+sequelize
+sequelize-cli
+path
+body-parser
