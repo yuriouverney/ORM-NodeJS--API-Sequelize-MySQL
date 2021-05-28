@@ -17,6 +17,7 @@ class NivelController{
             return res.status(500).json(error.message)
         }
     }
+
     static async pegaUmNivel(req, res) {
         // este id será da requisição feita. Exemplo: localhost:3000/niveis/4
         // o 4 seria este id

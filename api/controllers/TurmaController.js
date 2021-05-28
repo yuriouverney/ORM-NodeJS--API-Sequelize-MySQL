@@ -17,24 +17,7 @@ class TurmaController{
             return res.status(500).json(error.message)
         }
     }
-    static async pegaUmaTurma(req, res) {
-        // este id será da requisição feita. Exemplo: localhost:3000/turmas/4
-        // o 4 seria este id
-        const { id } = req.params
-        try{
-            // aqui vai o id do banco de dados, o "number" é para não dar problema, retornando um número.
-            // primeiro id = coluna do banco de dados
-            // segundo id (id) = o parâmetro que recebe da requisição feita acima.
-            const umaTurma = await database.Turmas.findOne({ 
-                where: {
-                id:Number(id)} 
-            })
-            return res.status(200).json(umaTurma)
-        } catch(error) {
-            return res.status(500).json(error)
-
-        }
-    }
+    
     // create -- Post
     static async criaUmaTurma(req, res){
         const novaTurma = req.body
@@ -59,15 +42,7 @@ class TurmaController{
             return res.status(500).json(error)
         }
     }
-    static async apagaTurma(req, res){
-        const { id } = req.params
-        try{
-            await database.Turmas.destroy({where:{id:Number(id)}})
-            return res.status(200).json({message: 'o Id ' +id+' foi deletado'})
-        }catch(error){
-            return res.status(500).json(error.message)
-        }
-    }
+    
 }
 
 module.exports = TurmaController

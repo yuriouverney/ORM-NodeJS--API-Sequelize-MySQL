@@ -131,6 +131,22 @@ class PessoaController{
         }
     }
 
+    //Join de tabelas
+    static async turmasPessoa(req,res){
+        const {id} = req.params
+        try{
+            const pegarTurmas = await database.Pessoas.findAll({  where: {
+                id:Number(id)},
+                include: [
+                    {association: 'Turmas'}
+                ]
+            })
+            return res.status(200).json(pegarTurmas)
+        }catch(error){
+            return res.status(500).json(error.message)
+        }
+    }
+
 
 }
 

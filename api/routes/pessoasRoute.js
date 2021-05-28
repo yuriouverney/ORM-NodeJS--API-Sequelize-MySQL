@@ -10,6 +10,9 @@ router.get('/pessoas/:id', pessoaController.pegaUmaPessoa)
 router.post('/pessoas/', pessoaController.criaPessoa)
 router.put('/pessoas/:id', pessoaController.atualizaPessoa)
 router.delete('/pessoas/:id', pessoaController.apagaPessoa)
+//teste
+router.get('/turmaspessoa/:id', pessoaController.turmasPessoa)
+router.get('/pessoas/:id', pessoaController.apagaPessoa)
 //rota de matrícula
 router.get('/pessoas/:estudanteId/matricula/:matriculaId', pessoaController.pegaUmaMatricula)
 router.post('/pessoas/:estudanteId/matricula/', pessoaController.criaMatricula)
