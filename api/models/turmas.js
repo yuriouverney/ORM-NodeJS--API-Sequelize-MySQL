@@ -7,8 +7,9 @@ module.exports = (sequelize, DataTypes) => {
     Turmas.hasMany(models.Matriculas, {
       foreignKey: 'turma_id'
     })
+    //verificar pq buga com essas duas linhas na hora da requisição
     Turmas.belongsTo(models.Pessoas)
-    Turmas.belongsTo(models.Niveis);
+    //Turmas.belongsTo(models.Niveis);
   };
   return Turmas;
 };

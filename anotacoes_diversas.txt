@@ -1,3 +1,5 @@
+// ATENÇÃO - AS TABELAS DEVEM SER CRIADAS EM ORDEM, TABELAS QUE NECESSITAM DE OUTRAS DEVEM SER CRIADAS DEPOIS!
+
 // RELAÇÃO ORM SINGULAR X PLURAL - TABELAS 
 
 É importante sempre que formos criar nomes para tabelas SQL colocarmos nomes no PLUARAL, exemplo:

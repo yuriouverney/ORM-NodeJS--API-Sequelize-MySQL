@@ -68,6 +68,70 @@ class PessoaController{
             return res.status(500).json(error.message)
         }
     }
+
+    //Para chamar a matrícula deve ser feito da seguinte forma:
+    //localhost:3000/pessoas/estudanteId/matricula/matriculaid
+    static async pegaUmaMatricula(req, res) {
+        const { estudanteId, matriculaId } = req.params
+        try{
+            const umaMatricula = await database.Matriculas.findOne({ 
+                where: {
+                id:Number(matriculaId),
+                estudante_Id:Number(estudanteId)} 
+            })
+            return res.status(200).json(umaMatricula)
+        } catch(error) {
+            return res.status(500).json(eror)
+
+        }
+    }
+
+    // criar matricula
+    static async criaMatricula(req, res){
+        const { estudanteId } = req.params
+        //criando um spread
+        //estudante_id é o nome da coluna assim como no banco de dados
+        const novaMatricula = {...req.body, estudante_id: Number(estudanteId)}
+        console.log(novaMatricula)
+        try{
+            const novaMatriculaCriada = await database.Matriculas.create(novaMatricula)
+            return res.status(200).json(novaMatriculaCriada)
+
+        }catch(error){
+            return res.status(500).json(error)
+        }
+    }
+    
+    // update - PUT
+    static async atualizaMatricula(req, res){
+        const { estudanteId, matriculaId } = req.params
+        const novasInfos = req.body
+        try{
+            await database.Matriculas.update(novasInfos, { 
+                where: {
+                    id:Number(matriculaId),
+                    estudante_id:Number(estudanteId)
+                    } 
+                })
+            //parte feita para retornar um valor legivel para quem fizer a requisição
+            const matriculaAtualizada = await database.Matriculas.findOne({ where:{id:Number(matriculaId)}})
+            return res.status(200).json(matriculaAtualizada)
+
+        }catch(error){
+            return res.status(500).json(error)
+        }
+    }
+    static async apagaMatricula(req, res){
+        const { estudanteId, matriculaId } = req.params
+        try{
+            await database.Matriculas.destroy({where:{id:Number(matriculaId)}})
+            return res.status(200).json({message: 'a matrícula ' +matriculaId+' foi deletada'})
+        }catch(error){
+            return res.status(500).json(error.message)
+        }
+    }
+
+
 }
 
 module.exports = PessoaController

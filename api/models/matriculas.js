@@ -4,8 +4,9 @@ module.exports = (sequelize, DataTypes) => {
     status: DataTypes.STRING
   }, {});
   Matriculas.associate = function(models) {
-    Matriculas.belongsTo(models.Pessoas)
-    Matriculas.belongsTo(models.Turmas)
+    //verificar pq q com o belongsTo não está funcionando
+    //Matriculas.belongsTo(models.Pessoas)
+    //Matriculas.belongsTo(models.Turmas)
 
   };
   return Matriculas;
