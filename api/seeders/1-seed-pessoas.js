@@ -1,7 +1,3 @@
-//Preencher o arquivo com os dados que queremos popular a tabela.
-
-'use strict';
-
 module.exports = {
   up: (queryInterface, Sequelize) => {
 		return queryInterface.bulkInsert('Pessoas', [
