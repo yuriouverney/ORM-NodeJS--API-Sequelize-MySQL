@@ -3,3 +3,4 @@ sequelize
 sequelize-cli
 path
 body-parser
+nodemon
